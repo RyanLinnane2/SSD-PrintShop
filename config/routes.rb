@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :categories
   resources :orders do 
     resources:orderitems
   end
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
     resources :orders 
   end
   
+  post '/search' => 'items#search'
   
+  get 'category/:title', to: 'static_pages#category'
   
   
  # get 'cart/index'
@@ -23,18 +26,14 @@ Rails.application.routes.draw do
 
   get '/about' => 'static_pages#about'
   
-  
   get '/login' => 'user#login'
+ 
+  get '/logout' => 'user#logout'
+    
+  get '/checkout' => 'cart#createOrder' 
+    
+ 
   
-    get '/logout' => 'user#logout'
-    
-    
-    get '/checkout' => 'cart#createOrder' 
-    
-    
-    # This looks like what we did for the add item ...... Muuhhhhh yes Liam you are right......
-    
-    
 get '/remove/:id' => 'cart#remove'
 
 

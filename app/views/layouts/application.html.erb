@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GolfStore</title>
+    <title>PrintShop</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,7 +14,7 @@
     
     
     <header class="headSec">
-      <h1>Wednesday Night Golf Goodies!</h1>
+      <h1>Print Shop</h1>
       
       <ul>
         <li><%= link_to "HOME", "/" %></li>
@@ -36,15 +36,6 @@
                  <li><%= link_to 'Register', new_user_registration_path %></li> 
                  <li><%= link_to 'Sign in', new_user_session_path %></li>
           <% end %>
-
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -57,12 +48,16 @@
     
     <div class="container">
       
-      <%= yield %>
+        <%=render 'layouts/search'%>
+        <%= yield %>
+      
       
     </div>
     
     <footer class="footer">
       <h1>Look Im At The Bottom.....</h1>
+      
+
       
     </footer>
   </body>

@@ -4,8 +4,17 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+    #Allow categories to be called from the items page
+    @categories = Category.all
     @items = Item.all
+
   end
+  
+  def search
+    st = "%#{params[:searchMe]}%"
+    @items = Item.where("title like ?", st)
+    end
+
 
   # GET /items/1
   # GET /items/1.json
@@ -72,3 +81,4 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:title, :description, :price, :image_url, :category, :brand)
     end
 end
+

@@ -3,7 +3,11 @@
  <div id="itemsContainer">
   
   <h1>Items</h1>
-     
+  
+    <div class="mainCont">
+    <%=render 'layouts/categories'%>
+    </div>
+
       <% @items.each do |item| %>
       <div class="itemhols">
        <h1><%= item.title %></h1>
@@ -34,8 +38,10 @@
       
 </div>
 
+
+
 <br>
 <% if user_signed_in? %>  
 <%= link_to 'New Item', new_item_path, :class =>"button", :role=>"button" %>
+<%= link_to 'New Category', new_category_path, :class =>"button", :role=>"button"  %>
 <% end %>
-
