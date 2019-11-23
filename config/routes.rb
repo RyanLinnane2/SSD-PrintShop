@@ -12,9 +12,12 @@ Rails.application.routes.draw do
     resources :orders 
   end
   
+  
+  
   post '/search' => 'items#search'
   
   get 'category/:title', to: 'static_pages#category'
+  get '/aboutSend/:id' => 'static_pages#aboutSend'
   
   
  # get 'cart/index'
@@ -23,6 +26,8 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get '/help' => 'static_pages#help'
+  
+
 
   get '/about' => 'static_pages#about'
   

@@ -34,10 +34,11 @@
     #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
     
    end
-
    
-  
-  
+   def aboutSend
+    @order = Order.find_by(id: params[:id])
+    @order.update_attribute(:status, "Paid with Paypal")
+   end
   
    def upgrade 
     @user = User.find_by(id: params[:id])
